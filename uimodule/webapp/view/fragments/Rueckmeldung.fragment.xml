@@ -1,0 +1,79 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'>
+    <Dialog title="{i18n>Rueckmeldung}">
+        <content>
+            <VBox>
+                <items>
+                    <HBox>
+                        <items>
+                            <Panel headerText="{i18n>Gutmenge}">
+                                <VBox>
+                                    <items>
+                                        <HBox>
+                                            <items>
+                                                <Input value="100" description="{i18n>Stueck}" type="Number" enabled="false"/>
+                                                <StepInput value="0" description="{i18n>Stueck}"/>
+                                            </items>
+                                        </HBox>
+                                        <Button text="{= ${functions>/MDEText} === true ? ${i18n>MDEMenge} : ${i18n>Restmenge}}" type="Emphasized"/>
+                                    </items>
+                                </VBox>
+                            </Panel>
+                            <Panel headerText="{i18n>Nacharbeit}">
+                                <VBox>
+                                    <items>
+                                        <StepInput value="0" description="{i18n>Stueck}"/>
+                                        <CheckBox text="{i18n>NacharbeitCreate}"/>
+                                    </items>
+                                </VBox>
+                            </Panel>
+                        </items>
+                    </HBox>
+                    <Panel headerText="{i18n>Ausschuss}">
+                        <VBox>
+                            <items>
+                                <Label text="{i18n>AuswahlUrsache}:"/>
+                                <HBox>
+                                    <items>
+                                        <ComboBox id="ComboUrsache" items="{ path: 'functions>/UrsacheCollection', filters: [{path: 'Active', operator: 'EQ', value1: false}] }">
+                                            <core:Item key="{functions>Nummer}" text="{functions>Bezeichnung}"/>
+                                        </ComboBox>
+                                        <Button icon="sap-icon://add" type="Emphasized" press="onAddUrsache"/>
+                                    </items>
+                                </HBox>
+                                <Table items="{ path: 'functions>/UrsacheCollection', filters: [{path: 'Active', operator: 'EQ', value1: true}] }">
+                                    <columns>
+                                        <Column>
+                                            <Text text="{i18n>AbweichendeUrsache}" />
+                                        </Column>
+                                        <Column>
+                                            <Text text="{i18n>Menge}" />
+                                        </Column>
+                                        <Column>
+                                            <Text text=""/>
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem>
+                                            <cells>
+                                                <ObjectIdentifier title="{functions>Nummer}" text="{functions>Bezeichnung}"/>
+                                                <StepInput value="{functions>Menge}"/>
+                                                <Button text="X" press="onDeleteUrsache" type="Transparent"/>
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </items>
+                        </VBox>
+                    </Panel>
+                </items>
+            </VBox>
+        </content>
+        <buttons>
+            <Button text="{i18n>cancel}" press=".onClose('Rueckmeldung')"></Button>
+            <Button text="{i18n>Teilrueck}" press="onTeilRueck" type="Emphasized" icon="sap-icon://pie-chart"></Button>
+            <Button text="{i18n>Endrueck}" press="onEndRueck" type="Emphasized" icon="sap-icon://complete"></Button>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

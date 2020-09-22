@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'>
+    <Dialog title="{i18n>contactPerson}">
+        <content>
+            <f:SimpleForm title="{i18n>contactData}">
+                <Label text="{i18n>Name}"/>
+                <Text text="Max Mustermann"/>
+                <Label text="{i18n>Email}"/>
+                <Text text="M.Mustermann@ceramtec.de"/>
+                <Label text="{i18n>Durchwahl}"/>
+                <Text text="10213"/>
+            </f:SimpleForm>
+        </content>
+        <endButton>
+            <Button text="{i18n>cancel}" press=".onClose('contactPerson')"></Button>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

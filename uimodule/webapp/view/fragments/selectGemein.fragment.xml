@@ -1,0 +1,39 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'>
+    <Dialog title="{i18n>GemeinkostenFor} Max Mustermann">
+        <content>
+            <f:SimpleForm>
+                <Table type="Responsive" items="{functions>/GemeinCollection}">
+                    <columns>
+                        <Column>
+                            <Text text="{i18n>Lohnart}" />
+                        </Column>
+                        <Column>
+                            <Text text="" />
+                        </Column>
+                        <Column>
+                            <Text text="" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>activeFrom}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <ObjectIdentifier title="{functions>Lohnart}" text="{functions>Description}"/>
+                                <Button icon="sap-icon://employee-approvals" text="{functions>Count}" enabled="{= ${functions>Count} > 0}" press="onPressCountGemein"/>
+                                <Switch type="AcceptReject" state="{functions>Active}" change="onSwitchActive"/>
+                                <ObjectIdentifier title="{functions>Date}" text="{functions>Time}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </f:SimpleForm>
+        </content>
+        <endButton>
+            <Button text="{i18n>cancel}" press=".onClose('selectGemein')"></Button>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

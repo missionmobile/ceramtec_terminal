@@ -1,0 +1,60 @@
+<mvc:View controllerName="de.mindsquare.ceramtecterminal.controller.MainView" displayBlock="true"
+  xmlns="sap.m"
+  xmlns:layout="sap.ui.layout"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core"
+  xmlns:commons="sap.ui.commons">
+  <App id="idAppControl" class="myAppDemoWT" backgroundImage="" backgroundOpacity="1">
+    <pages>
+      <Page backgroundDesign="Transparent">
+        <customHeader>
+          <Bar>
+            <contentLeft>
+              <Image src="resources/img/CT_Logo.png" height="40px" width="40px"/>
+            </contentLeft>
+
+            <contentMiddle>
+              <Text text="{i18n>title}"/>
+            </contentMiddle>
+
+            <contentRight>
+              <Button icon="sap-icon://appointment-2" text="{functions>/date}" enabled="false"/>
+              <Button icon="sap-icon://history" text="{functions>/time}" enabled="false"/>
+              <Button icon="sap-icon://employee-lookup" press="allFunctions"/>
+              <Button icon="sap-icon://popup-window" press="showTerminals"/>
+              <Button icon="sap-icon://sys-help" press="showContact"/>
+            </contentRight>
+          </Bar>
+        </customHeader>
+        <content>
+          <Panel visible="true" backgroundDesign="Transparent" headerText="{i18n>Funktionen}">
+            <content>
+              <FlexBox alignItems="Center" direction="Row" renderType="Bare" wrap="Wrap" width="100%" displayInline="true" fitContainer="true" items="{functions>/FunctionCollection}" visible="true" backgroundDesign="Transparent">
+                <items>
+                  <layout:Grid containerQuery="true" defaultIndent="XL1 L1 M1 S1" defaultSpan="XL12 L12 M12 S12" width="100%">
+                    <GenericTile header="{functions>Title}" subheader="{functions>Description}" press="onPressFunction" class="tileWithBorder">
+                      <TileContent footer="{functions>Footer}">
+                        <NumericContent value="{functions>Count}" icon="{functions>Icon}" withMargin="false" />
+                      </TileContent>
+                    </GenericTile>
+                  </layout:Grid>
+                </items>
+              </FlexBox>
+            </content>
+          </Panel>
+          <Panel visible="true" backgroundDesign="Transparent" headerText="{i18n>Arbeitsplaetze}">
+            <content>
+              <FlexBox alignItems="Center" direction="Row" renderType="Bare" wrap="Wrap" width="100%" displayInline="true" fitContainer="true" items="{/ServiceCollection}" visible="true" backgroundDesign="Transparent">
+                <items>
+                  <layout:Grid containerQuery="true" defaultIndent="XL1 L1 M1 S1" defaultSpan="XL12 L12 M12 S12" width="100%">
+                    <GenericTile header="{Description}" press="onPressTile" class="tileWithBorder"></GenericTile>
+                  </layout:Grid>
+                </items>
+              </FlexBox>
+            </content>
+          </Panel>
+        </content>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

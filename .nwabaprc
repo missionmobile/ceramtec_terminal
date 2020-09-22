@@ -1,0 +1,14 @@
+{
+"base": "./dist",
+"conn_server": "157.97.106.247",
+"conn_user": "username",
+"conn_password": "password",
+"abap_package": "$TMP",
+"abap_bsp": "ZZ_UI5_LOCAL",
+"abap_bsp_text": "UI5 upload local objects",
+"calcappindex": "",
+"conn_usestrictssl": "",
+"conn_client": "100",
+"abap_language": "DE",
+"abap_transport": ""
+}

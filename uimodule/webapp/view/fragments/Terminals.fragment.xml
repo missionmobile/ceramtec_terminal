@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'>
+    <ResponsivePopover title="{i18n>chooseTerminal}" placement="Bottom" contentWidth="30%">
+        <content>
+            <f:SimpleForm>
+                <Table type="Responsive" items="{functions>/TerminalCollection}">
+                    <headerToolbar>
+                        <Toolbar class="sapUiMediumMarginTop" id="toolbar1">
+                            <Title text="{i18n>Terminals}" />
+                            <ToolbarSpacer/>
+                            <Button icon="sap-icon://sort"/>
+                            <Button icon="sap-icon://filter"/>
+                            <SearchField width="50%" />
+                        </Toolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column>
+                            <Text text="{i18n>Werk}" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>Bezeichnung}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem type="Navigation" press="onChooseTerminal">
+                            <cells>
+                                <Text text="{functions>Werk}"/>
+                                <Text text="{functions>Bezeichnung}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </f:SimpleForm>
+        </content>
+        <endButton>
+            <Button text="{i18n>cancel}" press=".onClose('Terminals')"></Button>
+        </endButton>
+    </ResponsivePopover>
+</core:FragmentDefinition>

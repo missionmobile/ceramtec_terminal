@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'>
+    <Dialog title="{i18n>VorgangUmlagern}">
+        <content>
+            <f:SimpleForm>
+                <Label/>
+                <Text text="{i18n>VorgangUmlagernWohin}"/>
+                <Label text="{i18n>Arbeitsplatz}"/>
+                <ComboBox id="ComboUrsache" items="{functions>/VorgangPlatzCollection}">
+                    <core:Item key="{functions>Arbeitsplatz}" text="{functions>Arbeitsplatz} - {functions>Platzname}"/>
+                </ComboBox>
+            </f:SimpleForm>
+        </content>
+        <beginButton>
+            <Button text="{i18n>cancel}" press=".onClose('VorgangUmlagern')"></Button>
+        </beginButton>
+        <endButton>
+            <Button text="{i18n>VorgangUmlagern}" press="onConfirmVorgangUmlagern" type="Emphasized" icon="sap-icon://mirrored-task-circle-2"></Button>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

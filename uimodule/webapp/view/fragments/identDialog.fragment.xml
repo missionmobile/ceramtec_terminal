@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'>
+    <Dialog title="{i18n>Identification}">
+        <content>
+            <f:SimpleForm>
+                <Label/>
+                <SegmentedButton selectedKey="{i18n>Cardid}">
+                    <items>
+                        <SegmentedButtonItem text="{i18n>Cardid}" />
+                        <SegmentedButtonItem text="{i18n>Personalnumber}" />
+                    </items>
+                </SegmentedButton>
+                <Label/>
+                <Input type="Password"/>
+            </f:SimpleForm>
+        </content>
+        <beginButton>
+            <Button text="{i18n>cancelIdent}" press=".onClose('identDialog')"></Button>
+        </beginButton>
+        <endButton>
+            <Button text="{i18n>continue}" press="onIdent"></Button>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

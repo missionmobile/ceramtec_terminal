@@ -1,0 +1,104 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'>
+    <Dialog title="{i18n>ActivitiesFor} Max Mustermann">
+        <content>
+            <VBox alignItems="Center">
+                <items>
+                <SegmentedButton selectedKey="Vorgaenge" selectionChange="onSelectActivity">
+                    <items>
+                        <SegmentedButtonItem text="{i18n>Vorgaenge}" key="Vorgaenge"/>
+                        <SegmentedButtonItem text="{i18n>Externe}" key="Externe"/>
+                        <SegmentedButtonItem text="{i18n>Gemeinkosten}" key="Gemein"/>
+                    </items>
+                </SegmentedButton>
+                <Table items="{ path: 'functions>/VorgangPlatzCollection', filter: [{}]}" id="VorgangPlatzTable" visible="{= ${functions>/selectedActivity} === 'Vorgaenge'}">
+                    <columns>
+                        <Column>
+                            <Text text="{i18n>Status}" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>Auftrag}" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>Vorgang}" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>Arbeitsplatz}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem type="Navigation">
+                            <cells>
+                                <Button text="{functions>Status}" type="Emphasized" enabled="false"/>
+                                <ObjectIdentifier title="{functions>Auftrag}" text="{functions>Auftrag2}"/>
+                                <ObjectIdentifier title="{functions>Vorgang}" text="{functions>Description}"/>
+                                <ObjectIdentifier title="{functions>Arbeitsplatz}" text="{functions>Platzname}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+                <Table items="{ path: 'functions>/VorgangCollection', filter: [{}]}" id="VorgangExternTable" visible="{= ${functions>/selectedActivity} === 'Externe'}">
+                    <columns>
+                        <Column>
+                            <Text text="{i18n>Auftrag}" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>Vorgang}" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>Werker}" />
+                        </Column>
+                        <Column>
+                            <Text text="" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>activeFrom}" />
+                        </Column>
+                        <Column>
+                            <Text text=""/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{functions>Auftrag}"/>
+                                <Text text="{functions>Vorgang}"/>
+                                <Text text="{functions>Werker}"/>
+                                <Switch type="AcceptReject" state="{functions>Active}" change="onSwitchActive"/>
+                                <ObjectIdentifier title="{functions>Date}" text="{functions>Time}"/>
+                                <Button text="X" press="onDeleteVorgang" type="Transparent"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+                <Table items="{ path: 'functions>/GemeinCollection', filter: [{}]}" id="GemeinTable" visible="{= ${functions>/selectedActivity} === 'Gemein'}">
+                    <columns>
+                        <Column>
+                            <Text text="{i18n>Lohnart}" />
+                        </Column>
+                        <Column>
+                            <Text text="" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>activeFrom}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <ObjectIdentifier title="{functions>Lohnart}" text="{functions>Description}"/>
+                                <Switch type="AcceptReject" state="{functions>Active}" change="onSwitchActive"/>
+                                <ObjectIdentifier title="{functions>Date}" text="{functions>Time}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+                </items>
+            </VBox>
+        </content>
+        <endButton>
+            <Button text="{i18n>cancel}" press=".onClose('activityDialog')"></Button>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

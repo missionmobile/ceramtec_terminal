@@ -1,0 +1,160 @@
+<mvc:View controllerName="de.mindsquare.ceramtecterminal.controller.Arbeitsplatz" displayBlock="true"
+  xmlns="sap.m"
+  xmlns:layout="sap.ui.layout"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core">
+  <Page backgroundDesign="Transparent">
+    <customHeader>
+      <Bar>
+        <contentLeft>
+          <Button icon="sap-icon://nav-back" press="onNavBack"/>
+          <Image src="resources/img/CT_Logo.png" height="40px" width="40px"/>
+        </contentLeft>
+
+        <contentMiddle>
+          <Text text="{i18n>title}"/>
+        </contentMiddle>
+
+        <contentRight>
+          <Button icon="sap-icon://appointment-2" text="{functions>/date}" enabled="false"/>
+          <Button icon="sap-icon://history" text="{functions>/time}" enabled="false"/>
+          <Button icon="sap-icon://employee-lookup" press="allFunctions"/>
+          <Button icon="sap-icon://sys-help" press="showContact"/>
+        </contentRight>
+      </Bar>
+    </customHeader>
+    <content>
+      <IconTabBar id="idIconTabBarMulti" class="sapUiResponsiveContentPadding">
+        <items>
+          <IconTabFilter icon="sap-icon://process" text="{i18n>Produktion}" visible="{functions>/IstPlatz}">
+            <Toolbar>
+              <Title text="{i18n>StatusAktuell}: {functions>/Status}"/>
+              <ToolbarSpacer/>
+              <Button icon="sap-icon://share" text="{i18n>SetStatus}" type="Emphasized" press="setStatus"/>
+              <Button icon="sap-icon://add-coursebook" text="{i18n>EintragSchicht}" type="Emphasized" press="SchichtbuchMaschine"/>
+            </Toolbar>
+            <Table id="ProduktionTable" items="{ path: 'functions>/VorgangPlatzCollection', filter: [{}]}" mode="SingleSelectLeft" selectionChange="onSelectProduktion">
+              <headerToolbar>
+                <Toolbar class="sapUiMediumMarginTop" id="toolbar1">
+                  <Title text="{i18n>Vorgaenge}" />
+                  <ToolbarSpacer/>
+                  <Button icon="sap-icon://add-activity" text="{i18n>Rueckmeldung}" type="Emphasized" enabled="{functions>/showProduktionButtons}" press="onRueckmeldung"/>
+                  <Button icon="sap-icon://browse-folder" text="{i18n>Vorgangsdaten}" type="Emphasized" enabled="{functions>/showProduktionButtons}" press="onVorgangsdaten"/>
+                  <Button icon="sap-icon://action" text="{i18n>Aktion}" type="Emphasized" enabled="{functions>/showProduktionButtons}" press="onActionProduktion"/>
+                  <SearchField width="20%"/>
+                </Toolbar>
+              </headerToolbar>
+              <columns>
+                <Column>
+                  <Text text="{i18n>Status}" />
+                </Column>
+                <Column>
+                  <Text text="{i18n>Auftrag}" />
+                </Column>
+                <Column>
+                  <Text text="{i18n>Vorgang}" />
+                </Column>
+                <Column>
+                  <Text text="{i18n>Material}" />
+                </Column>
+                <Column>
+                  <Text text="{i18n>Start}" />
+                </Column>
+                <Column>
+                  <Text text="{i18n>Ende}" />
+                </Column>
+                <Column>
+                  <Text text="{i18n>Plan}" />
+                </Column>
+                <Column>
+                  <Text text="{i18n>Ist}" />
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Button text="{functions>Status}" type="Emphasized" enabled="false" press="setStatus"/>
+                    <ObjectIdentifier title="{functions>Auftrag}" text="{functions>Auftrag2}"/>
+                    <ObjectIdentifier title="{functions>Vorgang}" text="{functions>Description}"/>
+                    <ObjectIdentifier title="{functions>Material}" text="{functions>Materialtext}"/>
+                    <ObjectIdentifier title="{functions>Startdatum}" text="{functions>Startzeit}"/>
+                    <ObjectIdentifier title="{functions>Enddatum}" text="{functions>Endzeit}"/>
+                    <ObjectNumber number="{functions>Plan}" unit="{functions>Unit}"/>
+                    <VBox>
+                      <ObjectNumber number="{functions>Ist}" unit="{functions>Unit}"/>
+                      <ProgressIndicator class="sapUiSmallMarginBottom" percentValue="{= ${functions>Ist} / ${functions>Plan} * 100 }" displayValue="{= ${functions>Ist} / ${functions>Plan} * 100 } %" showValue="true" state="{= ${functions>Status} === ${i18n>Produktion} ? 'Success' : 'Warning'}"/>
+                    </VBox>
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+          <IconTabFilter icon="sap-icon://dimension" text="{i18n>Arbeitsvorrat}">
+            <Toolbar>
+              <Title text="{i18n>StatusAktuell}: {functions>/Status}"/>
+              <ToolbarSpacer/>
+              <Button icon="sap-icon://mirrored-task-circle-2" text="{i18n>ImportVorgang}" type="Emphasized" press="onImportVorgang"/>
+              <Button icon="sap-icon://add-coursebook" text="{i18n>EintragSchicht}" type="Emphasized" press="SchichtbuchMaschine"/>
+            </Toolbar>
+            <Table id="VorratTable" items="{ path: 'functions>/VorgangPlatzCollection', filter: [{}]}" mode="SingleSelectLeft" selectionChange="onSelectVorrat">
+              <headerToolbar>
+                <Toolbar class="sapUiMediumMarginTop" id="toolbar2">
+                  <Title text="{i18n>AngemeldeteWerker}" />
+                  <ToolbarSpacer/>
+                  <Button icon="sap-icon://browse-folder" text="{i18n>Vorgangsdaten}" type="Emphasized" enabled="{functions>/showVorratButtons}" press="onVorgangsdaten"/>
+                  <Button icon="sap-icon://action" text="{i18n>Aktion}" type="Emphasized" enabled="{functions>/showVorratButtons}" press="onAction2"/>
+                  <Button icon="sap-icon://sort"/>
+                  <Button icon="sap-icon://filter"/>
+                  <SearchField width="20%"/>
+                </Toolbar>
+              </headerToolbar>
+              <columns>
+                <Column>
+                  <Text text="{i18n>Status}" />
+                </Column>
+                <Column>
+                  <Text text="{i18n>Auftrag}" />
+                </Column>
+                <Column>
+                  <Text text="{i18n>Vorgang}" />
+                </Column>
+                <Column>
+                  <Text text="{i18n>Material}" />
+                </Column>
+                <Column>
+                  <Text text="{i18n>Start}" />
+                </Column>
+                <Column>
+                  <Text text="{i18n>Ende}" />
+                </Column>
+                <Column>
+                  <Text text="{i18n>Plan}" />
+                </Column>
+                <Column>
+                  <Text text="{i18n>Ist}" />
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <Button text="{functions>Status}" type="Emphasized" enabled="false"/>
+                    <ObjectIdentifier title="{functions>Auftrag}" text="{functions>Auftrag2}"/>
+                    <ObjectIdentifier title="{functions>Vorgang}" text="{functions>Description}"/>
+                    <ObjectIdentifier title="{functions>Material}" text="{functions>Materialtext}"/>
+                    <ObjectIdentifier title="{functions>Startdatum}" text="{functions>Startzeit}"/>
+                    <ObjectIdentifier title="{functions>Enddatum}" text="{functions>Endzeit}"/>
+                    <ObjectNumber number="{functions>Plan}" unit="{functions>Unit}"/>
+                    <VBox>
+                      <ObjectNumber number="{functions>Ist}" unit="{functions>Unit}"/>
+                      <ProgressIndicator class="sapUiSmallMarginBottom" percentValue="{= ${functions>Ist} / ${functions>Plan} * 100 }" displayValue="{= ${functions>Ist} / ${functions>Plan} * 100 } %" showValue="true" state="{= ${functions>Status} === ${i18n>Produktion} ? 'Success' : 'Warning'}"/>
+                    </VBox>
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </IconTabFilter>
+        </items>
+      </IconTabBar>
+    </content>
+  </Page>
+</mvc:View>

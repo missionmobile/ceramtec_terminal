@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'>
+    <Popover title="{i18n>AngemeldeteWerker}">
+        <content>
+            <f:SimpleForm>
+                <Table type="Responsive" items="{functions>/PersonCollection}">
+                    <columns>
+                        <Column>
+                            <Text text="{i18n>Name}" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>activeFrom}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{functions>Name}"/>
+                                <ObjectIdentifier title="{functions>Date}" text="{functions>Time}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </f:SimpleForm>
+        </content>
+        <endButton>
+            <Button text="{i18n>cancel}" press=".onClose('Popover')"></Button>
+        </endButton>
+    </Popover>
+</core:FragmentDefinition>

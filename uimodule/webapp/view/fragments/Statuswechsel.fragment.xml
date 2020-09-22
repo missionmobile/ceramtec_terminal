@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'
+    xmlns:smartform='sap.ui.comp.smartform'>
+    <Dialog title="{i18n>Statuswechsel}">
+        <content>
+            <MessageStrip text="{i18n>StatuswechselInfo}" showIcon="true" showCloseButton="false" class="sapUiMediumMarginBottom" type="Warning"/>
+            <HBox>
+                <smartform:SmartForm title="{i18n>Aktuell}">
+                    <smartform:Group>
+                        <smartform:GroupElement>
+                            <Button icon="sap-icon://process" text="{functions>/Status}" type="Emphasized"/>
+                        </smartform:GroupElement>
+                    </smartform:Group>
+                </smartform:SmartForm>
+                <smartform:SmartForm>
+                    <smartform:customToolbar>
+                        <Toolbar>
+                            <core:Icon src="sap-icon://arrow-right"/>
+                        </Toolbar>
+                    </smartform:customToolbar>
+                </smartform:SmartForm>
+                <smartform:SmartForm title="{i18n>Neu}">
+                    <smartform:Group title="{i18n>UnterbrechungMaschine}">
+                        <smartform:GroupElement>
+                            <Button icon="sap-icon://warning" text="{i18n>Wartung}" type="Emphasized"/>
+                            <Button icon="sap-icon://warning" text="{i18n>Reinigung}" type="Emphasized"/>
+                            <Button icon="sap-icon://warning" text="{i18n>Reparatur}" type="Emphasized"/>
+                            <Button icon="sap-icon://warning" text="{i18n>Umbau}" type="Emphasized"/>
+                            <Button icon="sap-icon://warning" text="{i18n>Einrichten}" type="Emphasized"/>
+                        </smartform:GroupElement>
+                    </smartform:Group>
+                </smartform:SmartForm>
+                <smartform:SmartForm title=" ">
+                    <smartform:Group title="{i18n>UnterbrechungKap}">
+                        <smartform:GroupElement>
+                            <Button icon="sap-icon://status-inactive" text="{i18n>Stillstand}" type="Emphasized"/>
+                            <Button icon="sap-icon://warning" text="{i18n>KeinPersonal}" type="Emphasized"/>
+                            <Button icon="sap-icon://warning" text="{i18n>KeinAuftrag}" type="Emphasized"/>
+                        </smartform:GroupElement>
+                    </smartform:Group>
+                </smartform:SmartForm>
+            </HBox>
+        </content>
+        <endButton>
+            <Button text="{i18n>cancel}" press=".onClose('Statuswechsel')"></Button>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

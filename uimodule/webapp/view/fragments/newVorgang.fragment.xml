@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'>
+    <Dialog title="{i18n>newVorgang}">
+        <content>
+            <f:SimpleForm>
+                <Label text="{i18n>Auftrag}"/>
+                <Input value="{functions>/newAuftrag}"/>
+                <Label text="{i18n>Vorgang}"/>
+                <Input value="{functions>/newVorgang}"/>
+                <Label/>
+                <MessageStrip text="{i18n>newVorgangInfo}" showIcon="true" showCloseButton="false" class="sapUiMediumMarginBottom">
+                </MessageStrip>
+            </f:SimpleForm>
+        </content>
+        <beginButton>
+            <Button text="{i18n>cancel}" press=".onClose('newVorgang')"></Button>
+        </beginButton>
+        <endButton>
+            <Button text="{i18n>save}" press="addVorgang" type="Emphasized" icon="sap-icon://save"></Button>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

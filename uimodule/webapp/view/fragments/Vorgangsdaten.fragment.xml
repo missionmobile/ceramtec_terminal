@@ -1,0 +1,114 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'>
+    <Dialog title="{i18n>Vorgangsdaten}">
+        <content>
+            <VBox alignItems="Center">
+                <items>
+                    <SegmentedButton selectedKey="Vorgaenge" selectionChange="onSelectVorgang">
+                        <items>
+                            <SegmentedButtonItem text="{i18n>Langtext}" key="Langtext"/>
+                            <SegmentedButtonItem text="{i18n>Dokumente} {functions>/DocumentCount}" key="Dokumente"/>
+                            <SegmentedButtonItem text="{i18n>Komponenten} {functions>/ComponentCount}" key="Komponenten"/>
+                            <SegmentedButtonItem text="{i18n>Hilfsmittel} {functions>/HilfsmittelCount}" key="Hilfsmittel"/>
+                        </items>
+                    </SegmentedButton>
+                    <f:SimpleForm visible="{= ${functions>/selectedVorgang} === 'Langtext'}">
+                        <Text text="{functions>/Langtext}"/>
+                    </f:SimpleForm>
+                    <Table items="{ path: 'functions>/DokumentCollection', filter: [{}]}" visible="{= ${functions>/selectedVorgang} === 'Dokumente'}">
+                        <columns>
+                            <Column>
+                                <Text text="{i18n>Dokument}" />
+                            </Column>
+                            <Column>
+                                <Text text="{i18n>Format}" />
+                            </Column>
+                            <Column>
+                                <Text text=""/>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <ObjectIdentifier title="{functions>Dateiname}" text="{functions>Beschreibung}"/>
+                                    <Text text="{functions>Format}"/>
+                                    <Button text="{i18n>DokumentAnzeigen}" type="Emphasized"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                    <Table items="{ path: 'functions>/KomponentenCollection', filter: [{}]}" visible="{= ${functions>/selectedVorgang} === 'Komponenten'}">
+                        <columns>
+                            <Column>
+                                <Text text="{i18n>Material}" />
+                            </Column>
+                            <Column>
+                                <Text text="{i18n>Lagerort}" />
+                            </Column>
+                            <Column>
+                                <Text text="{i18n>Menge}" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <ObjectIdentifier title="{functions>Material}" text="{functions>Beschreibung}"/>
+                                    <ObjectIdentifier title="{functions>Regal}" text="{functions>Werk}"/>
+                                    <ObjectNumber number="{functions>Menge}" unit="{functions>Unit}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                    <Table items="{ path: 'functions>/MaterialCollection', filter: [{}]}" visible="{= ${functions>/selectedVorgang} === 'Hilfsmittel'}">
+                        <columns>
+                            <Column>
+                                <Text text="{i18n>Material}" />
+                            </Column>
+                            <Column>
+                                <Text text="{i18n>Beschreibung}" />
+                            </Column>
+                            <Column>
+                                <Text text="{i18n>Menge}" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <ObjectIdentifier title="{functions>Material}" text="{functions>Beschreibung}"/>
+                                    <Text text="{functions>Beschreibungstext}"/>
+                                    <ObjectNumber number="{functions>Menge}" unit="{functions>Unit}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                    <Table items="{ path: 'functions>/EquipmentCollection', filter: [{}]}" visible="{= ${functions>/selectedVorgang} === 'Hilfsmittel'}">
+                        <columns>
+                            <Column>
+                                <Text text="{i18n>Equipment}" />
+                            </Column>
+                            <Column>
+                                <Text text="{i18n>Beschreibung}" />
+                            </Column>
+                            <Column>
+                                <Text text="{i18n>Menge}" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <ObjectIdentifier title="{functions>Equipment}"/>
+                                    <Text text="{functions>Beschreibungstext}"/>
+                                    <ObjectNumber number="{functions>Menge}" unit="{functions>Unit}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </items>
+            </VBox>
+        </content>
+        <endButton>
+            <Button text="{i18n>cancel}" press=".onClose('Vorgangsdaten')"></Button>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

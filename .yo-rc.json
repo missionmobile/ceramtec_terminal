@@ -1,0 +1,16 @@
+{
+  "generator-easy-ui5": {
+    "projectname": "ceramtecterminal",
+    "namespace": "de.mindsquare",
+    "platform": "SAP NetWeaver",
+    "viewtype": "XML",
+    "viewname": "MainView",
+    "ui5libs": "Content delivery network (SAPUI5)",
+    "newdir": true,
+    "namespaceURI": "de/mindsquare",
+    "uimodules": [
+      "uimodule"
+    ],
+    "setupCompleted": true
+  }
+}

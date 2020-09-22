@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'>
+    <Dialog title="{i18n>SchichtEintragMaschine}">
+        <content>
+            <f:SimpleForm>
+                <Label text="{i18n>Daten}"/>
+                <Text text="{functions>/Maschine}"/>
+                <Label text="{i18n>Kategorie}"/>
+                <ComboBox placeholder="{i18n>Auswaehlen}"/>
+                <Label text="{i18n>Titel}"/>
+                <Input placeholder="{i18n>Eingeben}" />
+                <Label text="{i18n>Bemerkung}"/>
+                <TextArea placeholder="{i18n>Eingeben}" rows="10"/>
+            </f:SimpleForm>
+        </content>
+        <beginButton>
+            <Button text="{i18n>cancel}" press=".onClose('SchichtEintrag')"></Button>
+        </beginButton>
+        <endButton>
+            <Button text="{i18n>EintragSenden}" press="EintragSenden" type="Emphasized" icon="sap-icon://paper-plane"></Button>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

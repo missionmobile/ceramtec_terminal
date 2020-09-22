@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'>
+    <Dialog title="{i18n>NextStep}">
+        <content>
+            <f:SimpleForm layout="ResponsiveGridLayout">
+                <Label/>
+                <MessageStrip text="{i18n>WarnungAbmelden}" type="Warning" showIcon="true" showCloseButton="false" class="sapUiMediumMarginBottom"/>
+                <Label/>
+                <Text text="{i18n>WieFortfahren}"/>
+            </f:SimpleForm>
+        </content>
+        <buttons>
+            <Button text="{i18n>cancel}" press=".onClose('WarnungAbmelden')"></Button>
+            <Button text="{i18n>MengenErfassen}" press="onRueckmeldungFragment" type="Emphasized" icon="sap-icon://add-activity"></Button>
+            <Button text="{i18n>OhneMengen}" press="onAbmeldenVorgang" type="Emphasized" icon="sap-icon://feeder-arrow"></Button>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

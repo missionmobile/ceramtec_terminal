@@ -1,0 +1,450 @@
+{
+    "FunctionCollection": [
+        {
+            "Title": "Gemeinkosten",
+            "Description": "An- und Abmeldung",
+            "Icon": "sap-icon://activity-individual",
+            "Count": 2,
+            "Footer": "Aktiv",
+            "Active": false
+        },
+        {
+            "Title": "Pause",
+            "Description": "An- und Abmeldung",
+            "Icon": "sap-icon://customer-history",
+            "Count": 1,
+            "Footer": "Aktiv",
+            "Active": false
+        },
+        {
+            "Title": "Schichtbuch",
+            "Description": "",
+            "Icon": "sap-icon://course-book",
+            "Count": 0,
+            "Footer": "Wichtige Meldungen",
+            "Active": false
+        },
+        {
+            "Title": "Externe Mehrmaschinenbedienung",
+            "Description": "",
+            "Icon": "sap-icon://example",
+            "Count": 4,
+            "Footer": "Aktiv",
+            "Active": false
+        }
+    ],
+    "GemeinCollection": [
+        {
+            "Lohnart": "0122",
+            "Description": "Reinigung",
+            "Active": false,
+            "Count": 2,
+            "Time": null,
+            "Date": null
+        },
+        {
+            "Lohnart": "0123",
+            "Description": "Betriebsversammlung",
+            "Active": false,
+            "Count": 0,
+            "Time": null,
+            "Date": null
+        },
+        {
+            "Lohnart": "0124",
+            "Description": "Gruppensitzung",
+            "Active": false,
+            "Count": 1,
+            "Time": null,
+            "Date": null
+        }
+        
+    ],
+    "PauseCollection": [
+        {
+            "Duration": 15,
+            "Count": 2,
+            "Active": false,
+            "FromTime": null,
+            "ToTime": null,
+            "FromDate": null,
+            "ToDate": null
+        },
+        {
+            "Duration": 30,
+            "Count": 5,
+            "Active": false,
+            "FromTime": null,
+            "ToTime": null,
+            "FromDate": null,
+            "ToDate": null
+        },
+        {
+            "Duration": "Dynamic",
+            "Count": 0,
+            "Active": false,
+            "FromTime": null,
+            "ToTime": null,
+            "FromDate": null,
+            "ToDate": null
+        }
+        
+    ],
+    "PersonCollection": [
+        {
+            "Name": "Daniel Raßbach",
+            "Time": "05:22:04",
+            "Date": "17.08.2020"
+        },
+        {
+            "Name": "Tim Diwischeck",
+            "Time": "09:30:00",
+            "Date": "17.08.2020"
+        }
+        
+    ],
+    "VorgangCollection": [
+        {
+            "Auftrag": "701150030",
+            "Vorgang": "0030",
+            "Werker": "Daniel Raßbach",
+            "Active": true,
+            "Time": "10:23:22",
+            "Date": "18.08.2020"
+        },
+        {
+            "Auftrag": "703320020",
+            "Vorgang": "0020",
+            "Werker": "Daniel Raßbach",
+            "Active": false,
+            "Time": null,
+            "Date": null
+        },
+        {
+            "Auftrag": "705550080",
+            "Vorgang": "0010",
+            "Werker": "Tim Diwischeck",
+            "Active": true,
+            "Time": "11:44:11",
+            "Date": "18.08.2020"
+        },
+        {
+            "Auftrag": "705550080",
+            "Vorgang": "0050",
+            "Werker": "Max Müller",
+            "Active": true,
+            "Time": "04:11:00",
+            "Date": "18.08.2020"
+        }
+    ],
+    "TerminalCollection": [
+        {
+            "Werk": "0007",
+            "Bezeichnung": "Ofenhalle"
+        },
+        {
+            "Werk": "0007",
+            "Bezeichnung": "Lasern"
+        },
+        {
+            "Werk": "0007",
+            "Bezeichnung": "Schleifen"
+        }
+    ],
+    "VorgangPlatzCollection": [
+        {
+            "Status": "Produktion",
+            "Auftrag": "12345",
+            "Auftrag2": "ZP01",
+            "Vorgang": "0020",
+            "Description": "Pressen Programm 8000-54321",
+            "Arbeitsplatz": "3115",
+            "Platzname": "Osterwalder Presse 1",
+            "Material": "0343543987629",
+            "Materialtext": "Tolles Material",
+            "Startdatum": "19.8.2020",
+            "Startzeit": "13:44:23",
+            "Enddatum": "20.8.2020",
+            "Endzeit": "13:44:23",
+            "Plan": "200",
+            "Ist": "123",
+            "Unit": "Stück"
+        },
+        {
+            "Status": "Vorrüsten",
+            "Auftrag": "12345",
+            "Auftrag2": "ZP01",
+            "Vorgang": "0030",
+            "Description": "Pressen Programm 8000-98765",
+            "Arbeitsplatz": "3120",
+            "Platzname": "Osterwalder Presse 2",
+            "Material": "0000074532454",
+            "Materialtext": "Medium tolles Material",
+            "Startdatum": "20.8.2020",
+            "Startzeit": "06:20:01",
+            "Enddatum": "20.8.2020",
+            "Endzeit": "14:20:01",
+            "Plan": "500",
+            "Ist": "488",
+            "Unit": "Stück"
+        },
+        {
+            "Status": "Unterbrochen",
+            "Auftrag": "12345",
+            "Auftrag2": "ZP01",
+            "Vorgang": "0020",
+            "Description": "Pressen Programm 8000-54321",
+            "Arbeitsplatz": "3115",
+            "Platzname": "Osterwalder Presse 1",
+            "Material": "0343543987629",
+            "Materialtext": "Tolles Material",
+            "Startdatum": "19.8.2020",
+            "Startzeit": "13:44:23",
+            "Enddatum": "20.8.2020",
+            "Endzeit": "13:44:23",
+            "Plan": "200",
+            "Ist": "50",
+            "Unit": "Stück"
+        },
+        {
+            "Status": "Inaktiv",
+            "Auftrag": "12345",
+            "Auftrag2": "ZP01",
+            "Vorgang": "0030",
+            "Description": "Pressen Programm 8000-98765",
+            "Arbeitsplatz": "3120",
+            "Platzname": "Osterwalder Presse 2",
+            "Material": "0000074532454",
+            "Materialtext": "Medium tolles Material",
+            "Startdatum": "20.8.2020",
+            "Startzeit": "06:20:01",
+            "Enddatum": "20.8.2020",
+            "Endzeit": "14:20:01",
+            "Plan": "500",
+            "Ist": "",
+            "Unit": "Stück"
+        },
+        {
+            "Status": "Inaktiv",
+            "Auftrag": "12345",
+            "Auftrag2": "ZP01",
+            "Vorgang": "0030",
+            "Description": "Pressen Programm 8000-98765",
+            "Arbeitsplatz": "3120",
+            "Platzname": "Osterwalder Presse 2",
+            "Material": "0000074532454",
+            "Materialtext": "Medium tolles Material",
+            "Startdatum": "20.8.2020",
+            "Startzeit": "06:20:01",
+            "Enddatum": "20.8.2020",
+            "Endzeit": "14:20:01",
+            "Plan": "500",
+            "Ist": "",
+            "Unit": "Stück"
+        },
+        {
+            "Status": "Inaktiv",
+            "Auftrag": "12345",
+            "Auftrag2": "ZP01",
+            "Vorgang": "0030",
+            "Description": "Pressen Programm 8000-98765",
+            "Arbeitsplatz": "3120",
+            "Platzname": "Osterwalder Presse 2",
+            "Material": "0000074532454",
+            "Materialtext": "Medium tolles Material",
+            "Startdatum": "20.8.2020",
+            "Startzeit": "06:20:01",
+            "Enddatum": "20.8.2020",
+            "Endzeit": "14:20:01",
+            "Plan": "500",
+            "Ist": "",
+            "Unit": "Stück"
+        },
+        {
+            "Status": "Inaktiv",
+            "Auftrag": "12345",
+            "Auftrag2": "ZP01",
+            "Vorgang": "0030",
+            "Description": "Pressen Programm 8000-98765",
+            "Arbeitsplatz": "3120",
+            "Platzname": "Osterwalder Presse 2",
+            "Material": "0000074532454",
+            "Materialtext": "Medium tolles Material",
+            "Startdatum": "20.8.2020",
+            "Startzeit": "06:20:01",
+            "Enddatum": "20.8.2020",
+            "Endzeit": "14:20:01",
+            "Plan": "500",
+            "Ist": "",
+            "Unit": "Stück"
+        },
+        {
+            "Status": "Inaktiv",
+            "Auftrag": "12345",
+            "Auftrag2": "ZP01",
+            "Vorgang": "0030",
+            "Description": "Pressen Programm 8000-98765",
+            "Arbeitsplatz": "3120",
+            "Platzname": "Osterwalder Presse 2",
+            "Material": "0000074532454",
+            "Materialtext": "Medium tolles Material",
+            "Startdatum": "20.8.2020",
+            "Startzeit": "06:20:01",
+            "Enddatum": "20.8.2020",
+            "Endzeit": "14:20:01",
+            "Plan": "500",
+            "Ist": "",
+            "Unit": "Stück"
+        },
+        {
+            "Status": "Inaktiv",
+            "Auftrag": "12345",
+            "Auftrag2": "ZP01",
+            "Vorgang": "0030",
+            "Description": "Pressen Programm 8000-98765",
+            "Arbeitsplatz": "3120",
+            "Platzname": "Osterwalder Presse 2",
+            "Material": "0000074532454",
+            "Materialtext": "Medium tolles Material",
+            "Startdatum": "20.8.2020",
+            "Startzeit": "06:20:01",
+            "Enddatum": "20.8.2020",
+            "Endzeit": "14:20:01",
+            "Plan": "500",
+            "Ist": "",
+            "Unit": "Stück"
+        },
+        {
+            "Status": "Inaktiv",
+            "Auftrag": "12345",
+            "Auftrag2": "ZP01",
+            "Vorgang": "0030",
+            "Description": "Pressen Programm 8000-98765",
+            "Arbeitsplatz": "3120",
+            "Platzname": "Osterwalder Presse 2",
+            "Material": "0000074532454",
+            "Materialtext": "Medium tolles Material",
+            "Startdatum": "20.8.2020",
+            "Startzeit": "06:20:01",
+            "Enddatum": "20.8.2020",
+            "Endzeit": "14:20:01",
+            "Plan": "500",
+            "Ist": "",
+            "Unit": "Stück"
+        },
+        {
+            "Status": "Inaktiv",
+            "Auftrag": "12345",
+            "Auftrag2": "ZP01",
+            "Vorgang": "0030",
+            "Description": "Pressen Programm 8000-98765",
+            "Arbeitsplatz": "3120",
+            "Platzname": "Osterwalder Presse 2",
+            "Material": "0000074532454",
+            "Materialtext": "Medium tolles Material",
+            "Startdatum": "20.8.2020",
+            "Startzeit": "06:20:01",
+            "Enddatum": "20.8.2020",
+            "Endzeit": "14:20:01",
+            "Plan": "500",
+            "Ist": "",
+            "Unit": "Stück"
+        },
+        {
+            "Status": "Inaktiv",
+            "Auftrag": "12345",
+            "Auftrag2": "ZP01",
+            "Vorgang": "0030",
+            "Description": "Pressen Programm 8000-98765",
+            "Arbeitsplatz": "3120",
+            "Platzname": "Osterwalder Presse 2",
+            "Material": "0000074532454",
+            "Materialtext": "Medium tolles Material",
+            "Startdatum": "20.8.2020",
+            "Startzeit": "06:20:01",
+            "Enddatum": "20.8.2020",
+            "Endzeit": "14:20:01",
+            "Plan": "500",
+            "Ist": "",
+            "Unit": "Stück"
+        }
+    ],
+    "UrsacheCollection": [
+        {
+            "Nummer": "0001",
+            "Bezeichnung": "Risse",
+            "Menge": "0",
+            "Active": false
+        },
+        {
+            "Nummer": "0002",
+            "Bezeichnung": "Farbe",
+            "Menge": "0",
+            "Active": false
+        }
+
+    ],
+    "DokumentCollection": [
+        {
+            "Dateiname": "CT_ROHTEILZEICHNUNG_1234",
+            "Beschreibung": "ROH",
+            "Format": "PDF"
+        },
+        {
+            "Dateiname": "CT_PRÜFVORGABEN_PRESSEN",
+            "Beschreibung": "PRUEF",
+            "Format": "PDF"
+        }
+
+    ],
+    "KomponentenCollection": [
+        {
+            "Material": "0000074532454",
+            "Beschreibung": "Masse für Pressen",
+            "Regal": "Regal 30B",
+            "Werk": "Werk 0007",
+            "Menge": "50",
+            "Unit": "KG"
+        },
+        {
+            "Material": "000007423425",
+            "Beschreibung": "Hochexplosiver Matsch",
+            "Regal": "Regal 44A",
+            "Werk": "Werk 0007",
+            "Menge": "2",
+            "Unit": "L"
+        }
+
+    ],
+    "MaterialCollection": [
+        {
+            "Material": "0000074532454",
+            "Beschreibung": "Masse für Pressen",
+            "Beschreibungstext": "Bitte verwenden!",
+            "Menge": "1",
+            "Unit": "Stück"
+        }
+
+    ],
+    "EquipmentCollection": [
+        {
+            "Equipment": "0000074532454",
+            "Beschreibungstext": "Bitte nicht verwenden!",
+            "Menge": "1",
+            "Unit": "Stück"
+        }
+
+    ],
+    "notall": false,
+    "notmeister": false,
+    "selectedActivity": "Vorgaenge",
+    "Status": "Produktion",
+    "IstPlatz": true,
+    "Maschine": "3115 - Osterwalder Presse 1",
+    "showVorratButtons": false,
+    "showProduktionButtons": false,
+    "MDEText": true,
+    "UrsacheCount": "0",
+    "selectedVorgang": "Langtext",
+    "Langtext": "Dies hier ist ein ganz langer Text zur Info zu einem Vorgang mit lorem ipsum und so"
+}

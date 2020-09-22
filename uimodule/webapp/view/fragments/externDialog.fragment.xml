@@ -1,0 +1,58 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'>
+    <Dialog title="{i18n>ExterneMehr}">
+        <content>
+            <VBox alignItems="Center">
+                <items>
+                <SegmentedButton selectedKey="Alle" selectionChange="onSelectVorgaenge">
+                    <items>
+                        <SegmentedButtonItem text="{i18n>Meine}" key="Meine" visible="{functions>/notmeister}"/>
+                        <SegmentedButtonItem text="{i18n>Alle}" key="Alle"/>
+                    </items>
+                </SegmentedButton>
+                <Table items="{ path: 'functions>/VorgangCollection', filter: [{}]}" id="VorgangTable">
+                    <columns>
+                        <Column>
+                            <Text text="{i18n>Auftrag}" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>Vorgang}" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>Werker}" />
+                        </Column>
+                        <Column>
+                            <Text text="" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>activeFrom}" />
+                        </Column>
+                        <Column>
+                            <Text text=""/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{functions>Auftrag}"/>
+                                <Text text="{functions>Vorgang}"/>
+                                <Text text="{functions>Werker}"/>
+                                <Switch type="AcceptReject" state="{functions>Active}" change="onSwitchActive" enabled="{= ${functions>/notall} === true || ${functions>/notmeister} === false}"/>
+                                <ObjectIdentifier title="{functions>Date}" text="{functions>Time}"/>
+                                <Button text="X" press="onDeleteVorgang" type="Transparent" enabled="{= ${functions>/notall} === true || ${functions>/notmeister} === false}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+                </items>
+            </VBox>
+        </content>
+        <beginButton>
+            <Button text="{i18n>cancel}" press=".onClose('externDialog')"></Button>
+        </beginButton>
+        <endButton>
+            <Button text="{i18n>addVorgang}" icon="sap-icon://add" type="Emphasized" press="addNewVorgang" visible="{functions>/notall}"></Button>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f='sap.ui.layout.form'>
+    <Popover placement="Bottom">
+        <content>
+            <f:SimpleForm>
+                <Button type="Accept" text="{i18n>WerkerAnmelden}" press="onWerkerAnmelden"/>
+                <Button type="Reject" text="{i18n>WerkerAbmelden}" press="onWerkerAbmelden"/>
+                <Button type="Emphasized" text="{i18n>AngemeldeteWerker}" press="onLoggedUsers"/>
+                <Button type="Emphasized" text="{i18n>EintragSchicht}" press="SchichtbuchVorgang"/>
+            </f:SimpleForm>
+        </content>
+        <endButton>
+            <Button text="{i18n>cancel}" press=".onClose('PopoverAction')"></Button>
+        </endButton>
+    </Popover>
+</core:FragmentDefinition>
